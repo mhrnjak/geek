@@ -4,6 +4,9 @@
     <title>Compass Example</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="jQueryRotate.2.2.js"></script>
+    
     <script type="text/javascript" charset="utf-8">
 
     // The watch id references the current `watchHeading`
@@ -43,6 +46,8 @@
     function onSuccess(heading) {
         var element = document.getElementById('heading');
         element.innerHTML = 'Heading: ' + heading.magneticHeading;
+		$("#igla").rotate(heading.magneticHeading);
+
     }
 
     // onError: Failed to get the heading
@@ -52,10 +57,20 @@
     }
 
     </script>
+      <style>
+#kompas {
+	background-image:url(compass.png);
+	background-repeat:no-repeat;
+	width:310px;
+	height:310px;
+	margin:10px auto;
+}
+</style>
   </head>
   <body>
     <div id="heading">Waiting for heading...</div>
-    <button onclick="startWatch();">Start Watching</button>
-    <button onclick="stopWatch();">Stop Watching</button>
+<div id="kompas">
+<div id="igla"><img src="needle.png" /></div>
+</div>
   </body>
 </html>
