@@ -27,19 +27,11 @@
     function startWatch() {
 
         // Update compass every 3 seconds
-        var options = { frequency: 3000 };
+        var options = { frequency: 30 };
 
         watchID = navigator.compass.watchHeading(onSuccess, onError, options);
     }
 
-    // Stop watching the compass
-    //
-    function stopWatch() {
-        if (watchID) {
-            navigator.compass.clearWatch(watchID);
-            watchID = null;
-        }
-    }
 
     // onSuccess: Get the current heading
     //
